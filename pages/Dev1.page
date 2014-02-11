@@ -1,0 +1,28 @@
+<apex:page standardcontroller="Resume__c" extensions="dev1_CTRL_ext1,dev1_CTRL_ext2" action="{!callCloud9}">
+<style>
+h6 {font-size:11px; font-weight:bold; color:gray;}
+</style>
+<apex:outputText value="{!res.IP_Origin__c}" rendered="true" />
+  <h1>NOTES</h1>
+   <apex:form >
+      <h2>CONTROLLER - CUSTOM - STD - EXTENSION</h2>
+      <p>  
+       VAR1= {!var1}<br />
+       <h6>TIPS: First extension method are always called in case of overwritten methods</h6>
+       </p>
+       <p>
+           resume__c.name = {!Resume__c['name']}
+           <h6>TIPS: Si il n'y a pas de context (?id=xxxx) on affiche rien</h6>
+           <apex:inputField value="{!res.IP_Origin__c}"/> 
+         <apex:commandButton value="print" action="{!print}"/> 
+           
+       </p>
+       <apex:commandButton value="save" action="{!save}"/>
+       <p>INCLUDE: <br />
+           <apex:include pageName="dev3"/>
+            <apex:include pageName="dev3"/>
+       </p>
+   </apex:form>
+1737
+ddd
+</apex:page>

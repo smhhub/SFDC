@@ -1,0 +1,7 @@
+<apex:page controller="CTRL_SeLoger" action="{!onLoad}">
+ Reponse:<br />
+ <apex:outputText value="{! Reponse}" escape="true" />
+ 
+ <apex:outputText value="{! Reponse}" escape="false" />
+ 
+</apex:page>

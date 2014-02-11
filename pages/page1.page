@@ -1,0 +1,17 @@
+<apex:page controller="page1CTRL">
+  <apex:form >
+      <apex:outputPanel id="panel1">
+          <script type="text/javascript">
+              var url = '{! myURL}';
+              var url2 = '{! accountURL }';
+
+              if(url != '')
+                  window.open(url, '_blank');
+              if(url2 != '')
+                  window.location = url2;
+          </script>
+      </apex:outputPanel>
+  
+     <apex:commandButton value="action" action="{!action}" reRender="panel1" onclick="console.log('onclick');" oncomplete="console.log('onComplete');" />
+  </apex:form>
+</apex:page>

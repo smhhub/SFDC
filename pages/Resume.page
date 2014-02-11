@@ -1,0 +1,320 @@
+<apex:page cache="false"  showHeader="false" title="Salim Mohamed resume" controller="CTRL_Resume" action="{!initCall}">
+     <script src="http://code.jquery.com/jquery-latest.js"></script>
+     <script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.10.2/jquery-ui.min.js"></script>
+    <style type="text/css">
+        body {background-color:#E6E6E8;}
+        .bodyCenter {width:1024px; margin-left:auto; margin-right:auto; margin-top:10px;}
+        .header {width:100%; background-color:#4B0085; height:30px; float:left; color:white;}
+        .footer {width:100%; background-color:#4B0085; height:100px; float:left; color:white;}
+        .infos {width:100%; background-color:#ffffff;  float:left;}
+        .divColumnLeft {width:50%; background-color:#ffffff;  float:left; }
+        .divColumnLeft table tr { margin-bottom: 10px;}
+        .divColumnLeft table tr td {vertical-align: top; border-bottom: 1px solid #4B0085;}
+        .divColumnRight {width:49%; background-color:white;  float:left; border-left:solid 1px #8200E6; margin-left:6px;}
+        .spacing {margin-left:15px; margin-right:5px;}
+        h1{display:block;  font-style: bold; text-align:center; margin-top:6px; font-size: 18px; }
+        h2{  font-style: bold; height:30px; width:90%;  background-image: url(http://www.trophee-export.com/_mm/puce_violet.gif);
+        background-repeat: no-repeat;  background-position: left center; padding-top: 2px; padding-left: 30px; }
+        .titre {width:100%; border-bottom: 1px solid black; margin-top: 20px; margin-bottom:5px;}
+        .availability { font-weight:bold; font-size:14px;}
+        .violet {color:#8200E6; font-size:14px;}
+        .customPopup{background-color:white; border-style:solid; border-color:grey; border-width:3px; -moz-border-radius:5px; -webkit-border-radius:10px; border-radius:10px; padding:10px; position:fixed; z-index:9999; margin-left:auto; margin-right:auto; width:510; top:10%}
+        .levelBar {display:none; height:20px; margin-bottom:8px; border:1px solid black; color:white; background-image:url('{!$Resource.violetBG}');}
+        .orientation {-ms-transform:rotate(90deg); /* IE 9 */
+  -moz-transform:rotate(90deg); /* Firefox */
+  -webkit-transform:rotate(90deg); /* Safari and Chrome */
+  -o-transform:rotate(90deg); /* Opera */  font-weight:bold;}
+    </style>
+    <apex:form >
+    <div class="bodyCenter">
+        
+         <div class="header"><h1>- RESUME -</h1></div>
+         <div class="infos" >
+           
+          
+        </div>
+         
+         <div class="divColumnLeft">
+         <div class="spacing">
+
+           <apex:image url="{!$Resource.HireMe}" width="500" height="300"/>
+            <div class="titre"><h2> - CERTIFICATES / DIPLOMAS - </h2></div>
+            <table>
+                <tr><td>December 2012</td><td>Certification: Salesforce Certified Developer (DEV 401)</td></tr>
+                <tr><td>January 2012</td><td>Certification: Java SE 5 and 6, Certified Associate (SCJA – 1Z0-850)</td></tr>
+                <tr><td>November 2010</td><td>Certification: PEGA Certified System Architect (CSA)</td></tr>
+                <tr><td>August 2010</td><td> Training: PEGA PRPC Boot Camp (5 days)</td></tr>
+                <tr><td>January 2010</td><td>Training:  PEGA Fast Track to PRPC (5 days)</td></tr>
+            </table>
+             <table>
+                <tr>
+                    <td><apex:image url="http://2.bp.blogspot.com/-j3VOcQRqWTM/UIyu_fYRd_I/AAAAAAAAAMo/8ME-rZy-1A0/s1600/sf_cert_dev_rgb.png" height="105" width="145"/></td>
+                    <td><apex:image url="http://java.developpez.com/public/images/certifications/oracle_certasso.gif" height="105" width="145"/></td>
+                    <td> <apex:image url="http://3.bp.blogspot.com/_MZ3L0W2mzes/SbH6J98cXcI/AAAAAAAAAAc/eIwySuwkjpc/S220/PegaCertifiedSystemArchitect.jpg" style="margin-left:10px;"/></td>
+                </tr>
+                 <tr>
+                    <td align="center"> <apex:commandButton value="Show" action="{! showDocPopup}" rerender="docPopUp">
+                        <apex:param name="certifType" value="{!$Resource.certifSF}" assignTo="{!certifType}"/>
+                        </apex:commandButton>
+                    </td>
+                    <td align="center"> <apex:commandButton value="Show" action="{! showDocPopup}" rerender="docPopUp">
+                     <apex:param name="certifType" value="{!$Resource.certifOracle}" assignTo="{!certifType}"/>
+                        </apex:commandButton>
+                    </td>
+                    <td align="center"> <apex:commandButton value="Show" action="{! showDocPopup}" rerender="docPopUp">
+                     <apex:param name="certifType" value="{!$Resource.certifPega}" assignTo="{!certifType}"/>
+                        </apex:commandButton>
+                    </td>
+                </tr>
+            </table>
+           <div class="titre"><h2> - LAST SALESFORCE PROJECT - </h2></div>
+            <p>
+               <span class="violet">PROJECT DESCRIPTION:</span> <br />
+                - Build a full custom credit proposal application for asian market.<br />
+                - Build an online quotation web site for internet users (Salesforce Sites)<br />
+                - Internationalization (translated in 3 languages)<br />
+                - Template management with Conga
+            </p>
+           
+               <span class="violet">TECHNICAL OVERVIEW:</span> <br />
+                => Development environment:<br />
+                <p style="margin-left:20px;margin-top:2px;">
+                    Eclise IDE<br />
+                    Salesforce built-in editing<br />
+                    Developer console<br />
+                   
+                </p>
+                => View (in M<span class="violet" style="font-weight:bold;">V</span>C Model):<br />
+                <p style="margin-left:20px;margin-top:2px;">
+                    VisualForce pages <br />
+                    Components <br />
+                    Native Javascript <br />
+                    Jquery Library <br />
+                    AJAX (using rerender)<br />
+                </p>
+                
+                => Controller (in MV<span class="violet" style="font-weight:bold;">C</span> Model):<br />
+                <p style="margin-left:20px;margin-top:2px;">
+                    Standard, custom and extension controller <br />
+                    Triggers <br />
+                    Field updates <br />
+                    Validation rules<br />
+                    Test Methods writing<br />
+                </p>
+                
+                => Model (in <span class="violet" style="font-weight:bold;">M</span>VC Model):<br />
+                <p style="margin-left:20px;margin-top:2px;">
+                    Custom / standard objects <br />
+                    UML data modeling (in Cacoo)<br />
+                    REST calls
+                    Data Loader
+                    Apex jobs and batch
+                </p>
+                
+                => Deployment method:<br />
+                <p style="margin-left:20px;margin-top:2px;">
+                    Change sets<br />
+                    Eclipse IDE deploy methods
+                </p>
+           
+            
+            
+              <div class="titre"><h2> - PROFESSIONAL EXPERIENCE - </h2></div>
+             <table border="0">
+                <tr>
+                    <td width="20%">2012 – ongoing</td>
+                    <td>
+                        <span class="violet">CAPGEMINI  Technical manager / SalesForce Developer</span>
+                        Client: AXA (Insurance / banking investment)
+                        <ul>
+                        <li>Technical Manager (responsible for 4 salesforce developers)</li>
+                        <li>Development of new features, workloads, bug fixing, Testing, deployment</li>
+                        <li>Writing technical and conceptual documents</li>
+                        </ul>
+                        Technical env.: VisualForce / Apex,  Eclipse IDE, Quality Center   
+                    </td>
+                </tr>
+                 <tr>
+                    <td >2010 - 2012</td>
+                    <td>
+                        <span class="violet">CAPGEMINI • PEGA System Developer (BPM)</span>
+                        Client: BNP Paribas Corporate and Investment Banking (CIB)
+                        <ul>
+                            <li>Pega System developer </li>
+                            <li>Development of new features, workload, bug fixing</li>
+                            <li>Writing technical / conceptual documents, Testing</li>
+                            <li>Coaching OffShore (Development team in India - Mumbai))</li>
+                        </ul>
+                        Technical env.: PEGA PRPC, Quality Center, Jira, Clarity   
+                    </td>
+                </tr>
+                
+                 <tr>
+                    <td>2009 – 2010</td>
+                    <td>
+                        <span class="violet">STUDIOKM • Co-founder of the web agency</span>
+                        Client / Contrat: YvesNadal.com, JTEKT HPI, NetG TV, Afrozic, HappySingle, Maxigame.fr
+                        <ul>
+                            <li>Technical manager</li>
+                            <li>Writing specifications, billing, accounts management</li>
+                            <li>Web project manager, customer support</li>
+                        </ul>
+                        Technical env.: Technical env.: PHP/MySql, Html, Xml, Ajax, Javascript, CMS, Flash (AS 2/3)  
+                    </td>
+                </tr>
+                
+                 <tr>
+                    <td>2006 – 2007</td>
+                    <td>
+                       <span class="violet">JTEKT HPI • Technical manager - PLM project Audros</span>
+                        Work-study program during 2 years (3 days a week)
+                        Internal project: Develop Audros PLM solution
+                        <ul>
+                            <li>Develop specific and additional features written in Aupl according to specification defined internally by the project team</li>
+                            <li>Administration, user support, user / administration guide writing </li>
+                            
+                        </ul>
+                        Technical env.: Aupl Audros Language, SQL Server 2005  
+                    </td>
+                </tr>
+                
+                 <tr>
+                    <td>2006 – 2007</td>
+                    <td>
+                       <span class="violet">DICE • Software engineer / Developer on embedded system</span>
+                        Work-study program during 1 year (3 days a week)
+                        Client: CinéAqua (Aquarium of Paris - Trocadéro)
+                        <ul>
+                            <li>Development of an embedded system managed by touch screen terminal with contactless card / bar code access. Gate control.</li>
+                            <li>Development of an online web site delivering bar code.</li>
+                            
+                        </ul>
+                        Technical env.: Borland C++ Builder (C++), Visual Studio 2005 .NET (ASP - C#), SQL Server 2005, SVN    
+                    </td>
+                </tr>
+            </table>
+             </div>
+         </div>
+ 
+         <div class="divColumnRight" >
+         <div class="spacing">
+              <p>
+              <table>
+                   <tr>
+                      <td width="60px"><apex:image url="http://us.cdn1.123rf.com/168nwm/grublee/grublee1002/grublee100200084/6460271-glossy-phone-icon-button-isolated-over-white-background.jpg" width="40" height="40"/></td>
+                      <td><span class="violet">Mail:</span><br />salim.mohamed@live.com</td>
+                 </tr>
+                  <tr>
+                      <td>&nbsp;</td>
+                      <td><span class="violet">Phone:</span><br />0033 7 61 00 28 65</td>
+                 </tr>
+                  <tr>
+                      <td>&nbsp;</td>
+                      <td><span class="violet">Web:</span><br />http://salimmohamed-developer-edition.na9.force.com</td>
+                 </tr>
+              </table>
+            </p>
+            
+            <h2>- OBJECTIVE - </h2>
+            <p>
+            <span class="availability">Seeking a Salesforce.com developer position (CRM – Cloud Computing)</span><br /><br />
+            <span class="availability">Availability: Mid-October 2013 [<apex:outputText value="{!daysAvailability} days left" />] <span style="font-size:9px;">(automatically updated)</span></span><br />
+            <span class="availability">Location targeted: IDF(France) prefered / province or international only for short mission</span><br />
+
+           Years of experience: 5 years (+3 years work-study program)<br />
+           
+            </p>
+            
+            
+          
+            
+           
+       
+            <div class="titre"><h2> - TECHNICAL SKILLS - </h2></div>
+           <table width="450px">
+                <tr align="center" height="120px" style="background-color:#E8E8E8;">
+                <td width="16%" class="orientation">Novice</td>
+                <td class="orientation" width="16%">Beginner</td>
+                <td class="orientation" width="16%">Competent</td>
+                <td width="16%" class="orientation">Proficient</td>
+                <td class="orientation" width="16%">Expert</td>
+                <td class="orientation" width="16%">Master Yoda</td></tr>
+            </table>
+            <div style="width:450px; margin-top:5px;">
+                <div id="level1" class="levelBar" style="width:95%;"><span style="margin-left:10px;">HTML / CSS</span></div>
+                <div id="level2" class="levelBar" style="width:75%;"><span style="margin-left:10px;">JS / JQuery / Ajax</span></div>
+                <div id="level3" class="levelBar" style="width:80%;"><span style="margin-left:10px;">PHP</span></div>
+                <div id="level4" class="levelBar" style="width:70%;"><span style="margin-left:10px;">XML / JSON</span></div>
+                <div id="level5" class="levelBar" style="width:75%;"><span style="margin-left:10px;">SALESFORCE (VisualForce/APEX)</span></div>
+                <div id="level6" class="levelBar" style="width:68%;"><span style="margin-left:10px;">Java</span></div>
+                <div id="level10" class="levelBar" style="width:55%;"><span style="margin-left:10px;">Photoshop CS5 / Illustrator CS5</span></div>
+                <div id="level7" class="levelBar" style="width:60%;"><span style="margin-left:10px;">.NET</span></div>
+                <div id="level8" class="levelBar" style="width:58%;"><span style="margin-left:10px;">C/C++</span></div>    
+                <div id="level9" class="levelBar" style="width:82%;"><span style="margin-left:10px;">PEGA System</span></div>
+                <div id="level10" class="levelBar" style="width:50%;"><span style="margin-left:10px;">IOS / Iphone SDK / Objectif C</span></div>
+                
+            </div>
+            
+             <div class="titre"><h2> - EDUCATION - </h2></div>
+            <table>
+                <tr><td> 2007 - 2009</td><td> Master Degree IT – Major in Project manager (ITIS Evry- FEDE group)</td></tr>
+                <tr><td>2003 - 2006</td><td>Associate Degree IT – Major in software engineering (ESGI Paris– PGSM group) </td></tr>
+                <tr><td>2001</td><td>High School Degree – Major in Economic / social science (Inter. French School Riyadh KSA)</td></tr>
+            </table>
+            
+            <div class="titre"><h2> - LANGUAGES - </h2></div>
+            <table>
+                <tr><td><apex:image url="{!$Resource.flagFR}"/></td><td>French</td><td>Mother tongue</td></tr>
+                <tr><td><apex:image url="{!$Resource.flagUS}"/></td><td>English</td><td>Professional / technical </td></tr>
+                <tr><td><apex:image url="{!$Resource.flagES}"/></td><td>Spanish</td><td>High school level (read, write)</td></tr>
+            </table>
+             
+             <div class="titre"><h2> - PERSONNAL PROJECT- </h2></div>
+            <table>
+                <tr><td>www.BeChic-BeClass.com</td><td>Online shopping web site done in prestashop</td></tr>
+                <tr><td>Baby Evolution</td><td>Iphone application (currently in dev)</td></tr>
+
+            </table>
+            
+         </div>
+         </div>
+        <!--<apex:image url="http://www.publiz.net/wp-content/uploads/2010/08/cv-roland-martial-500x619.jpg"/>-->
+         <!--<apex:image url="http://www.publiz.net/wp-content/uploads/2010/08/cv-cros-harris-500x646.jpg"/>-->
+         <div class="footer">
+             <p style="text-align:center;">This page has been developed in VisualForce and Apex [Salesforce Site]<br /> - 2013 - <span style="color:#4B0085"><apex:outputText value="{!visitCounter}" /></span></p>
+             <apex:outputText value="{!ip}" />
+         </div>
+          
+         <apex:outputPanel id="docPopUp">
+       
+                    <apex:outputPanel styleClass="customPopup" layout="block" rendered="{!displayDocPopUp}">
+                       <apex:image url="{!certifType}"/>
+                        <br/><br/>
+                        <apex:commandButton style="margin-left:49%;" value="Close" action="{! closeDocPopUp}" rerender="docPopUp" />
+                    
+                    </apex:outputPanel>
+                    
+            </apex:outputPanel>
+    </div>
+    </apex:form>
+    <script>
+    $(document).ready(function() {
+        $("#level1").show("slide", { direction: "left" }, 2500);
+        $("#level2").show("slide", { direction: "left" }, 1500);
+        $("#level3").show("slide", { direction: "left" }, 3000);
+        $("#level4").show("slide", { direction: "left" }, 2500);
+        $("#level5").show("slide", { direction: "left" }, 1500);
+        $("#level6").show("slide", { direction: "left" }, 3000);
+        $("#level7").show("slide", { direction: "left" }, 2500);
+        $("#level8").show("slide", { direction: "left" }, 1500);
+        $("#level9").show("slide", { direction: "left" }, 3000);
+        $("#level10").show("slide", { direction: "left" }, 3500);
+        $("#level11").show("slide", { direction: "left" }, 1000);
+
+    });
+    
+ 
+ 
+  </script>
+
+</apex:page>

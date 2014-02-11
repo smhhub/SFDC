@@ -1,0 +1,6 @@
+<apex:page standardController="Finance__c" extensions="FinanceCtrl">
+<apex:form >
+<apex:commandButton action="{!GenerateInvoice}" value="Generate Invoice"/>
+</apex:form>
+<apex:detail /> 
+</apex:page>

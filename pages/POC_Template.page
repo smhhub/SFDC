@@ -1,0 +1,23 @@
+<apex:page standardController="Account" >
+<apex:form >
+<apex:commandButton action="{!save}"/>
+POC_Template BEGIN <br /><br />
+  <apex:composition template="POC_myFormComposition">
+    
+    <apex:define name="meal">
+        <apex:outputLabel value="Enter your favorite meal: " for="mealField"/>
+        
+    </apex:define>
+
+    <apex:define name="age">
+        <apex:outputLabel value="Enter your age: " for="ageField"/>
+  
+    </apex:define>
+    sss
+   <apex:outputLabel value="Enter your favorite color: " for="colorField"/>
+eee
+    
+    </apex:composition>
+    <br /><br />POC_Template END
+    </apex:form>
+</apex:page>

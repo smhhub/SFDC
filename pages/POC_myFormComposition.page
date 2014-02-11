@@ -1,0 +1,14 @@
+<apex:page >
+  <!-- Begin Default Content REMOVE THIS -->
+  <h1> Le template</h1>
+  contedsfdsfds
+  <br />
+        <apex:insert name="age" />
+        <br />
+        <apex:insert name="meal" />
+        <br />      
+        
+        FIN  TEMPLATE<br />
+       
+
+</apex:page>
